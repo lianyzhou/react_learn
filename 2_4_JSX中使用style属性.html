@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>JSX中使用style属性</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<script type="text/babel">
+
+  const styleObj = {
+    backgroundColor: 'blue',
+    color: '#fff',
+    marginTop: 10
+  };
+
+  ReactDOM.render(
+    <div>
+      <div style={{backgroundColor: 'red', color: '#fff'}}>
+        我爱前端
+      </div>
+      <div style={{'background-color': 'red', color: '#fff', marginTop: 10, padding: '10px'}}>
+        我爱前端
+      </div>
+
+      <div style={styleObj}>
+        我爱前端
+      </div>
+
+      <div style={{...styleObj, color: 'red'}}>
+        我爱前端
+      </div>
+
+    </div>, document.getElementById('root'));
+
+</script>
+
+</body>
+</html>

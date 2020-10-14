@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>JSX</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<style>
+  .skill_list_item {
+    font-weight:bold;
+  }
+</style>
+
+<script type="text/babel">
+
+  const person = {
+    name: 'Jack',
+    age: 20
+  };
+
+  const skillList = [
+    {name: 'HTML', id: "html"},
+    {name: 'CSS', id: "css"},
+    {name: 'JavaScript', id: "javascript"}
+  ];
+
+  function getSign() {
+    return <span style={{fontWeight: 'bold', fontStyle: 'italic'}}>不积跬步，无以至千里，不积小流，无以成江海</span>;
+  }
+
+  ReactDOM.render(<div>
+    <p>大家好，我叫{person.name}, 我今年{person.age}岁。</p>
+    <p>我的座右铭是：{getSign()}</p>
+    <p>我喜欢前端，我掌握的技能有: </p>
+    <ul>
+      {skillList.map((skill) => {
+        return <li className="skill_list_item">{skill.name}</li>
+      })}
+    </ul>
+
+  </div>, document.getElementById('root'));
+
+</script>
+
+</body>
+</html>

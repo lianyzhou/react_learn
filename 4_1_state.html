@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>state</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<script type="text/babel">
+
+  class Counter extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        counter: 1
+      };
+    }
+    increaseCounter = () => {
+      this.setState({
+        counter: this.state.counter + 1
+      }, () => {
+        console.log('更新之后的counter值!!', this.state.counter);
+      });
+
+//      this.setState({
+//        counter: this.state.counter + 1
+//      }, () => {
+//        console.log('更新之后的counter值**', this.state.counter);
+//      });
+
+    }
+    render() {
+      return <div className="bordered">
+        {this.state.counter}
+        <button onClick={this.increaseCounter}>count增加</button>
+      </div>;
+    }
+  }
+
+  ReactDOM.render(
+    <div>
+      <Counter/>
+    </div>
+    , document.getElementById('root')
+  );
+
+</script>
+
+</body>
+</html>

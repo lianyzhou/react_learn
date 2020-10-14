@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>使用数组的map方法进行遍历</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<script type="text/babel">
+
+  const frontSkillList = [
+    {name: 'HTML', id: "html"},
+    {name: 'CSS', id: "css"},
+    {name: 'JavaScript', id: "javascript"}
+  ];
+
+  const backendSkillList = [
+    {name: 'Java', id: "java"},
+    {name: 'Spring', id: "spring"},
+    {name: 'MyBatis', id: "mybatis"}
+  ];
+
+  const skillType = 'front';
+
+  function renderFrontSkillList() {
+    return frontSkillList.map((skill) => {
+      return <li>{skill.name}</li>
+    });
+  }
+
+  function renderBackendSkillList() {
+    return backendSkillList.map((skill) => {
+      return <li>{skill.name}</li>
+    });
+  }
+
+  function renderSkillList() {
+    if (skillType === 'front') {
+      return renderFrontSkillList();
+    }
+    return renderBackendSkillList();
+  }
+
+  ReactDOM.render(<div>
+    <p>我喜欢{skillType === 'front' ? '前端' : '后端'}，我掌握的技能有: </p>
+    <ul>
+      {renderSkillList()}
+    </ul>
+  </div>, document.getElementById('root'));
+
+</script>
+
+</body>
+</html>

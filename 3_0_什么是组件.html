@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>什么是组件</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<style>
+  html,body {
+    padding: 0;
+    margin: 0;
+  }
+  .app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .top-nav {
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+  }
+  .content {
+    display: flex;
+    flex: 1;
+  }
+  .left-nav {
+    width: 200px;
+    border-right: 1px solid #ccc;
+  }
+  .right-content {
+    flex: 1;
+  }
+</style>
+
+<script type="text/babel">
+
+  function TopNav(props) {
+    return <div className="top-nav">{props.title}</div>
+  }
+
+  function LeftNav(props) {
+    return <div className="left-nav">
+      <p>技术分类：</p>
+      <ul>
+        {props.skillList.map((skill) => {
+          return <li>{skill.name}</li>;
+        })}
+      </ul>
+    </div>;
+  }
+
+  function ContentBlock(props) {
+    return <div className="right-content" style={{backgroundColor: props.bgColor}}></div>;
+  }
+
+  function App() {
+
+    const skillList = [
+      {name: 'Html'},
+      {name: 'Css'},
+      {name: 'Javascript'},
+    ];
+
+    return <div className="app">
+      <TopNav title="个人博客" />
+      <div className="content">
+        <LeftNav skillList={skillList} />
+        <ContentBlock bgColor="#fafafa"/>
+      </div>
+    </div>;
+  }
+
+  ReactDOM.render(
+    <App />, document.getElementById('root'));
+
+</script>
+
+</body>
+</html>

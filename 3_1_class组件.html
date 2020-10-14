@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>class组件</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<style>
+  .bordered {
+    border: 1px solid #ccc;
+    margin: 10px;
+  }
+</style>
+
+<script type="text/babel">
+
+
+  class Favourite extends React.Component {
+    static defaultProps = {
+      name: 'react'
+    }
+    render() {
+      return <div className="bordered">
+        我热爱 {this.props.name} 技术
+      </div>;
+    }
+  }
+
+  class Favourite1 extends React.Component {
+    static defaultProps = {
+      name: 'react'
+    }
+    constructor(props) {
+      super(props);
+      this.age = 20;
+    }
+    render() {
+      return <div className="bordered">
+        我热爱 {this.props.name} 技术，我今年{this.age}岁
+      </div>;
+    }
+  }
+
+  class Person extends React.Component {
+    render() {
+      const {name, age, skillList} = this.props;
+      return <div className="bordered">
+        <p>我叫 {name}, 我今年 {age} 岁， 我掌握的技术有：</p>
+        <ul>
+          {skillList.map((skill) => {
+            return <li>{skill.name}</li>
+          })}
+        </ul>
+      </div>;
+    }
+  }
+
+  class ContainerComp extends React.Component {
+    static defaultProps = {
+      bgColor: 'red'
+    };
+    render() {
+      return (<div style={{backgroundColor: this.props.bgColor}} className="bordered">
+        {this.props.children}
+      </div>);
+    }
+  }
+
+
+  const skillList = [
+    {name: 'Html'},
+    {name: 'Css'},
+    {name: 'JavaScript'}
+  ];
+
+
+  ReactDOM.render(
+    <div>
+      <Favourite />
+      <Favourite name="vue" />
+      <Favourite1 />
+      <Favourite1 name="vue" />
+      <Person name="小马哥" age={20} skillList={skillList} />
+      <ContainerComp>
+        <div>背景颜色是红色</div>
+      </ContainerComp>
+      <ContainerComp bgColor="blue">
+        <div>背景颜色是蓝色</div>
+      </ContainerComp>
+    </div>
+    , document.getElementById('root')
+  );
+
+</script>
+
+</body>
+</html>

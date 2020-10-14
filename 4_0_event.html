@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>event</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<script type="text/babel">
+
+  class EventTest extends React.Component {
+    onClickBtn = (evt) => {
+      console.log('触发单击事件', evt);
+    }
+    onDoubleClickBtn = (evt) => {
+      console.log('触发双击事件', evt);
+    }
+    onTextChange = (evt) => {
+      console.log('文本值改变', evt.target.value);
+    }
+    onWheel = (evt) => {
+      console.log(evt.target.scrollTop);
+    }
+    render() {
+      return <div className="bordered">
+        <button
+          onClick={this.onClickBtn}
+          onDoubleClick={this.onDoubleClickBtn}
+        >Click</button>
+        <div>
+          <input type="text" onChange={this.onTextChange} />
+        </div>
+        <div style={{width: 200, height: 100, overflow: 'scroll', border: '1px solid #ccc'}} onWheel={this.onWheel}>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+          <p>111</p>
+        </div>
+      </div>;
+    }
+  }
+
+  ReactDOM.render(
+    <div>
+      <EventTest/>
+    </div>
+    , document.getElementById('root')
+  );
+
+</script>
+
+</body>
+</html>

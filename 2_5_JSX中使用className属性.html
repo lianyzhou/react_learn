@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>JSX中使用className属性</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/classnames/2.2.6/index.min.js"></script>
+
+<style>
+  .cls1 {
+    background-color: red;
+    color: white;
+    margin: 10px;
+  }
+  .cls2 {
+    background-color: blue;
+    color: white;
+    margin: 10px;
+  }
+  .cls3 {
+    background-color: red;
+    color: blue;
+    font-size: 18px;
+    margin: 10px;
+  }
+  .cls4 {
+    background-color: black;
+    color: white;
+    line-height: 30px;
+    margin: 10px;
+  }
+</style>
+
+<script type="text/babel">
+  ReactDOM.render(
+    <div>
+      <div className={"cls1"}>
+        我爱前端
+      </div>
+      <div className="cls2">
+        我爱前端
+      </div>
+      <div className={classNames("cls3", "cls4")}>
+        我爱前端
+      </div>
+      <div className={classNames("cls3", {cls4: false})}>
+        我爱前端
+      </div>
+    </div>, document.getElementById('root'));
+
+</script>
+
+</body>
+</html>
