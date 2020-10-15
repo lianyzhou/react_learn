@@ -22,27 +22,13 @@
 
 #### 自我介绍
 
-称呼：周连毅
-
-爱好：唱歌、打台球、学习前端技术
+称呼：周连毅 (Jack)
 
 简介：
 
-​       10年前端开发经验，曾就职于新浪微博、阿里云等公司，做过PC、移动端的大型项目，主要用React进行开发。
+​       10年前端开发经验，曾就职于新浪微博、阿里云，做过PC、移动端的大型项目，精通web和移动端开发。
 
 
-
-#### 课程目标
-
-+ 掌握JSX的书写方式
-
-+ React组件的两种编写方式
-
-+ 掌握组件的State，并能够灵活运用
-
-+ 可以为组件添加DOM事件处理
-
-+ React组件的调试
 
 #### 课程代码
 https://github.com/lianyzhou/react_learn  
@@ -88,7 +74,13 @@ React的特点：
 <script type="text/babel">
   // 此处书写React代码
 </script>
++ ReactDOM.render
 
+  ```
+  ReactDOM.render(JSX, container[, callback])
+  ```
+
+  在提供的 `container` 里渲染JSX，如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行
 
 
 #### JSX语法
@@ -97,7 +89,7 @@ React的特点：
   + JSX是什么
       + JSX的作用是用于描述视图
       + JSX是一个JavaScript的语法糖
-      + 在JS中可以使用 模板 + CSS
+      + 在JSX中可以使用 模板 + CSS
   + JSX中使用表达式
       + 使用 {} 显示属性值
       + 使用数组的map方法进行遍历
@@ -145,7 +137,7 @@ React的特点：
 
 #### 如何为组件添加dom事件
 
-* 驼峰式事件名
+* 驼峰式事件名   onClick  onMouseEnter
 
 * 第一个参数是event对象
 

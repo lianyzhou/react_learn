@@ -30,13 +30,13 @@
         console.log('更新之后的counter值!!', this.state.counter);
       });
 
-//      this.setState((nextState) => {
-//        return {
-//          counter: nextState.counter + 1
-//        };
-//      }, () => {
-//        console.log('更新之后的counter值**', this.state.counter);
-//      });
+      this.setState((nextState) => {
+        return {
+          counter: nextState.counter + 1
+        };
+      }, () => {
+        console.log('更新之后的counter值**', this.state.counter);
+      });
 
     }
     render() {
