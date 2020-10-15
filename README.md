@@ -66,7 +66,10 @@ React的特点：
 
 + 标准html中，使用script标签引入三个JS资源
 
-+ 在页面上放置一个<div id="root"></div>
++ 在页面上放置一个
+```
+<div id="root"></div>
+```
 
 + 添加script标记并书写代码
 ```
