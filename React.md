@@ -70,12 +70,13 @@ React的特点：
 + 在页面上放置一个<div id="root"></div>
 
 + 添加script标记并书写代码
-  
-<script type="text/babel">
-  // 此处书写React代码
-</script>
-+ ReactDOM.render
+```
+    <script type="text/babel">
+      // 此处书写React代码
+    </script>
 
+```
++ ReactDOM.render
   ```
   ReactDOM.render(JSX, container[, callback])
   ```
